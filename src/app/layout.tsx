@@ -21,10 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider>
-          <Navbar/>
-          <main className="p-4 max-w-7xl m-auto min-w-[300px]">{children}</main>
+          <Navbar />
+          <main className="m-auto min-w-[300px] max-w-7xl p-4">{children}</main>
           <Footer />
-        </SessionProvider>  
+        </SessionProvider>
       </body>
     </html>
   );

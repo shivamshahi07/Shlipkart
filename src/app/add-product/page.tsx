@@ -1,12 +1,18 @@
 import FormSubmitButton from "@/components/FormSubmitButton";
 import { prisma } from "@/lib/db/prisma";
+import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export const metadata = {
   title: "Add Product-Shlipkart",
 };
 async function AddProduct(formData: FormData) {
   "use server";
+  const session=await getServerSession(authOptions)
+  if(!session){
+    redirect("/api/auth/signin?callbackUrl=/add-product")
+  }
   const name = formData.get("name")?.toString();
   const description = formData.get("description")?.toString();
   const imageUrl = formData.get("imageUrl")?.toString();
@@ -21,7 +27,11 @@ async function AddProduct(formData: FormData) {
   redirect("/");
 }
 
-export default function AddProductPage() {
+export default async function AddProductPage() {
+  const session=await getServerSession(authOptions)
+  if(!session){
+    redirect("/api/auth/signin?callbackUrl=/add-product")
+  }
   return (
     <div>
       <h1 className="mb-2 font-bold text-lg">add product </h1>
