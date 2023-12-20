@@ -4,14 +4,12 @@ import { Inter } from "next/font/google";
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer";
 import SessionProvider from "./SessionProvider";
-import images from "@/app/opengraph-image.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Shlipkart",
   description: "Your wallet hates us ",
-  metadataBase: new URL("images"),
 };
 
 export default function RootLayout({
@@ -21,6 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <meta property="og:image" content="<generated>" />
+      <meta property="og:image:type" content="<generated>" />
+      <meta property="og:image:width" content="<generated>" />
+      <meta property="og:image:height" content="<generated>" />
       <body className={inter.className}>
         <SessionProvider>
           <Navbar />
