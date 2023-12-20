@@ -3,13 +3,15 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer";
-import SessionProvider from "./SessionProvider"
+import SessionProvider from "./SessionProvider";
+import images from "@/app/opengraph-image.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Shlipkart",
   description: "Your wallet hates us ",
+  metadataBase: new URL("images"),
 };
 
 export default function RootLayout({
