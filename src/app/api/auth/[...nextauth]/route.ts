@@ -1,6 +1,6 @@
-import authOptions from './options'; // Update the path accordingly
-import NextAuth from 'next-auth';
+import { authOptions } from "@/app/api/auth/[...nextauth]/options";
+import NextAuth from "next-auth/next";
 
 const handler = NextAuth(authOptions);
-export default authOptions;
-export { handler as GET, handler as POST }
+
+export { handler as GET, handler as POST };
