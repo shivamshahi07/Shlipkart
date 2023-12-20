@@ -2,16 +2,16 @@ import FormSubmitButton from "@/components/FormSubmitButton";
 import { prisma } from "@/lib/db/prisma";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import authOptions from "../api/auth/[...nextauth]/options";
 
 export const metadata = {
   title: "Add Product-Shlipkart",
 };
 async function AddProduct(formData: FormData) {
   "use server";
-  const session=await getServerSession(authOptions)
-  if(!session){
-    redirect("/api/auth/signin?callbackUrl=/add-product")
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    redirect("/api/auth/signin?callbackUrl=/add-product");
   }
   const name = formData.get("name")?.toString();
   const description = formData.get("description")?.toString();
@@ -28,9 +28,9 @@ async function AddProduct(formData: FormData) {
 }
 
 export default async function AddProductPage() {
-  const session=await getServerSession(authOptions)
-  if(!session){
-    redirect("/api/auth/signin?callbackUrl=/add-product")
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    redirect("/api/auth/signin?callbackUrl=/add-product");
   }
   return (
     <div>
