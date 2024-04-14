@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
     return (
       <footer className="bg-neutral p-10 text-neutral-content">
@@ -22,6 +24,9 @@ export default function Footer() {
             <a className="link-hover link">Privacy policy</a>
             <a className="link-hover link">Cookie policy</a>
           </div>
+        </div>
+        <div className="flex items-center justify-center mt-12 ">
+          Made with 🤍 by <Link href={"https://github.com/shivamshahi07"} className="hover:underline hover:text-blue-500 ml-1 "> Shivam Shahi</Link>
         </div>
       </footer>
     );
