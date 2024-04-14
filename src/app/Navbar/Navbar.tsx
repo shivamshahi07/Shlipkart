@@ -7,7 +7,7 @@ import ShoppingCartButton from "./ShoppingCartButton";
 import UserMenuButton from "./UserMenuButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/options";
-
+//function to search among products 
 async function searchProducts(formdata: FormData) {
   "use server";
   const searchQuery = formdata.get("searchQuery")?.toString();
